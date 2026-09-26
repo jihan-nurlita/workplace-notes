@@ -99,7 +99,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        "Pilih Category",
+                        "Choose Category",
                         style: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -426,7 +426,8 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                                 if (selectedDate == null) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                        content: Text("Pilih tanggal dulu ya")),
+                                        content:
+                                            Text("Please select a date first")),
                                   );
                                   return;
                                 }
@@ -517,7 +518,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       content:
-                                          Text("The title cannot be empty.")),
+                                          Text("The title cannot be empty")),
                                 );
                                 return;
                               }
@@ -527,7 +528,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       content:
-                                          Text("The note cannot be empty.")),
+                                          Text("The note cannot be empty")),
                                 );
                                 return;
                               }
@@ -536,7 +537,8 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                               if (selectedDate == null) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
-                                      content: Text("Pilih tanggal dulu ya")),
+                                      content:
+                                          Text("Please select a date first")),
                                 );
                                 return;
                               }
@@ -548,27 +550,59 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(16)),
-                                    title: Text("Tanpa Reminder",
+                                    title: Text("Without a reminder",
                                         style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.bold)),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          letterSpacing: -0.5,
+                                        )),
                                     content: Text(
-                                        "Yakin mau simpan tanpa jam reminder?",
-                                        style: GoogleFonts.poppins()),
+                                        "Are you sure you want to save it without a reminder time?",
+                                        style: GoogleFonts.poppins(
+                                          color: const Color(0xFF475569),
+                                          fontSize: 14,
+                                        )),
                                     actions: [
+                                      // Tombol Batal / Cancel
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(context, false),
-                                        child: Text("Batal",
-                                            style: GoogleFonts.poppins(
-                                                color: Colors.grey)),
+                                        child: Text(
+                                          "Cancel",
+                                          style: GoogleFonts.poppins(
+                                            color: const Color(0xFF64748B),
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
                                       ),
-                                      TextButton(
+                                      const SizedBox(width: 8),
+                                      // 🔵 Tombol Continue Biru dengan Teks Putih
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors
+                                              .blueAccent, // Warna dasar tombol Biru
+                                          elevation:
+                                              0, // Datar tanpa bayangan (opsional)
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                12), // Sudut melengkung
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 20,
+                                            vertical: 10,
+                                          ),
+                                        ),
                                         onPressed: () =>
                                             Navigator.pop(context, true),
-                                        child: Text("Lanjut",
-                                            style: GoogleFonts.poppins(
-                                                color: Colors.blue,
-                                                fontWeight: FontWeight.bold)),
+                                        child: Text(
+                                          "Continue",
+                                          style: GoogleFonts.poppins(
+                                            color: Colors
+                                                .white, // Teks Warna Putih
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),

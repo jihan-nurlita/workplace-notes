@@ -42,7 +42,7 @@ class DetailNoteScreen extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.pop(context),
               child: Text(
-                "Batal",
+                "Cancel",
                 style: GoogleFonts.poppins(
                   color: const Color(0xFF64748B),
                   fontWeight: FontWeight.w600,
@@ -65,7 +65,7 @@ class DetailNoteScreen extends StatelessWidget {
                 });
               },
               child: Text(
-                "Hapus",
+                "Delete",
                 style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,

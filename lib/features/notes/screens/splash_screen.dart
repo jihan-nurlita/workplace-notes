@@ -95,7 +95,7 @@ class _SplashScreenState extends State<SplashScreen>
                 Text(
                   "Workplace Notes",
                   style: GoogleFonts.poppins(
-                    fontSize: 23,
+                    fontSize: 29,
                     fontWeight: FontWeight.bold,
                     color: const Color(0xFF1E293B),
                     letterSpacing: -0.5,
@@ -106,7 +106,7 @@ class _SplashScreenState extends State<SplashScreen>
                 Text(
                   "Organize Your Work, Elevate Your Day",
                   style: GoogleFonts.poppins(
-                    fontSize: 13,
+                    fontSize: 14,
                     color: Colors.grey,
                     fontWeight: FontWeight.w400,
                   ),

@@ -437,11 +437,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 child: NoteCard(
+                                  // 🔑 Gunakan kombinasi title & createdAt sebagai ID Unik (tanpa ubah class Note)
+                                  id: "${note.title}_${note.createdAt.millisecondsSinceEpoch}",
                                   title: note.title,
                                   subtitle: note.description,
                                   color: getCategoryColor(note.category),
                                   icon: getCategoryIcon(note.category),
                                   reminderTime: note.reminderTime,
+                                  onDelete: () {
+                                    // 🗑️ Panggil fungsi hapus milik kamu yang sudah ada
+                                    _deleteNoteWithUndo(
+                                        note, notes.indexOf(note));
+                                  },
                                   onTap: () async {
                                     final result = await Navigator.push(
                                       context,
@@ -461,7 +468,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                         });
                                         saveNotes();
                                       } else if (result["action"] == "delete") {
-                                        // Panggil fungsi UNDO saat hapus via DetailNoteScreen
                                         _deleteNoteWithUndo(
                                           result["deletedNote"] ?? note,
                                           result["index"],
